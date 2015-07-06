@@ -1,0 +1,5 @@
+#!/bin/bash
+
+
+wget --directory-prefix="/usr/lusers/nicway/civil/NLDAS/gribfiles/" -A grb --timeout=20 -t inf -N -nH --cut-dirs=6 -r -c -o log_only_$1 ftp://hydro1.sci.gsfc.nasa.gov/data/s4pa/NLDAS/NLDAS_FORA0125_H.002/$1/ &
+
