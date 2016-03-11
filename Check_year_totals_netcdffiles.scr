@@ -1,0 +1,18 @@
+#!/bin/bash
+
+rm STATUS_netcdf.txt
+rm year_totals_netcdf.txt
+rm years_netcdf.txt
+
+for i in `seq 1979 2015`
+do 
+    echo $i
+    ls -l ./netcdffiles/*A$i* | wc -l >> year_totals_netcdf.txt
+    echo $i >> years_netcdf.txt	
+done
+
+paste years_netcdf.txt year_totals_netcdf.txt > STATUS_netcdf.txt
+
+rm year_totals_netcdf.txt
+rm years_netcdf.txt
+

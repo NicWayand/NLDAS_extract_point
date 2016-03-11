@@ -1,0 +1,21 @@
+#!/bin/bash
+
+module load contrib/NLC
+
+cd /usr/lusers/nicway/civil/NLDAS/gribfiles/
+
+for i in `seq 1979 2014`;
+do
+	echo $i
+	filelist_cy=`ls *A"$i"*`
+	
+	for cf in $filelist_cy;
+	do
+		echo $cf
+		ncl_convert2nc $cf -i /usr/lusers/nicway/civil/NLDAS/gribfiles/ -o /usr/lusers/nicway/civil/NLDAS/netcdffiles/
+	done
+	echo done with $i
+done
+
+echo done!
+

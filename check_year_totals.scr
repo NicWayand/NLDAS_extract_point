@@ -1,0 +1,18 @@
+#!/bin/bash
+
+rm STATUS.txt
+rm year_totals.txt
+rm years.txt
+
+for i in `seq 1979 2015`
+do 
+    echo $i
+    ls -l ./gribfiles/*A$i* | wc -l >> year_totals.txt
+    echo $i >> years.txt	
+done
+
+paste years.txt year_totals.txt > STATUS.txt
+
+rm year_totals.txt
+rm years.txt
+
